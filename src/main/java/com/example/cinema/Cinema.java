@@ -13,14 +13,14 @@ public class Cinema extends Application {
     public void start(Stage stage) {
         try {
             // Charger le fichier FXML
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Accueil.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
 
             // Charger l'interface et obtenir le contrôleur
             Scene scene = new Scene(fxmlLoader.load(), 700, 400); // Taille de la fenêtre
-            scene.getStylesheets().add(CinemaController.class.getResource("styles.css").toExternalForm());
+            scene.getStylesheets().add(CinemaController.class.getResource("/com/example/cinema/Styles.css").toExternalForm());
 
             // Obtenir le contrôleur après le chargement
-            CinemaController controller = fxmlLoader.getController();
+            LoginController controller = fxmlLoader.getController();
 
             // Configurer le stage
             stage.setTitle("Gestion de Cinéma");

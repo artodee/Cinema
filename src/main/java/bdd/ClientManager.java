@@ -20,6 +20,19 @@ public class ClientManager {
         return false;
     }
 
+    public void delClient(int id){
+        BddManager bdd = new BddManager();
+        Connection connection = bdd.connection();
+        String sql_request = "DELETE FROM clients WHERE id =?";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql_request);
+            pstmt.setInt(1, id);
+            pstmt.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public ResultSet getClients(){
         BddManager bdd = new BddManager();
         Connection connection = bdd.connection();
@@ -33,6 +46,30 @@ public class ClientManager {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public int getNombreClients() {
+        BddManager bdd = new BddManager();
+        Connection connection = bdd.connection();
+        int count = 0;
+        String query = "SELECT COUNT(*) FROM clients";
+        try (PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet rs = statement.executeQuery()) {
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de la récupération du nombre de clients : " + e.getMessage());
+        } finally {
+            try {
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Erreur lors de la fermeture de la connexion : " + e.getMessage());
+            }
+        }
+        return count;
     }
 
 

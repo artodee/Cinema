@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXCheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
@@ -14,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" stylesheets="Styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinema.CinemaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" stylesheets="Styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinema.ClientController">
     <children>
         <BorderPane layoutX="53.0" layoutY="65.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -23,7 +22,7 @@
                         <Pane layoutX="77.0" layoutY="20.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #4361ee;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                         <HBox layoutX="226.0" layoutY="-17.0" prefHeight="43.0" prefWidth="525.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
                             <children>
-                                <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="MenuItem" text="Dashboard">
+                                <JFXButton onAction="#versAccueil" prefHeight="38.0" prefWidth="136.0" styleClass="MenuItem" text="Dashboard">
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -32,7 +31,7 @@
                                         </ImageView>
                                     </graphic>
                                 </JFXButton>
-                                <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="MenuItem" text="Film">
+                                <JFXButton onAction="#versFilm" prefHeight="38.0" prefWidth="136.0" styleClass="MenuItem" text="Film">
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -41,7 +40,7 @@
                                         </ImageView>
                                     </graphic>
                                 </JFXButton>
-                                <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="MenuItem" text="Seance">
+                                <JFXButton onAction="#versSeance" prefHeight="38.0" prefWidth="136.0" styleClass="MenuItem" text="Seance">
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -50,7 +49,7 @@
                                         </ImageView>
                                     </graphic>
                                 </JFXButton>
-                                <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="MenuItem" text="Client">
+                                <JFXButton onAction="#versClient" prefHeight="38.0" prefWidth="136.0" styleClass="MenuItem" text="Client">
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -59,6 +58,15 @@
                                         </ImageView>
                                     </graphic>
                                 </JFXButton>
+                        <JFXButton onAction="#versUtilisateur" prefHeight="38.0" prefWidth="136.0" styleClass="MenuItem" text="Utilisateur">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/utlisateur2.PNG" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
                             </children>
                         </HBox>
                         <Label fx:id="Menu" layoutX="19.0" layoutY="36.0" text="MENU" textFill="#b7b7b7" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="621.0" AnchorPane.topAnchor="36.0">
@@ -93,7 +101,7 @@
                     <children>
                         <VBox layoutX="38.0" layoutY="35.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="53.0">
                             <children>
-                                <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Dashboard" textFill="WHITE">
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#versAccueil" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Dashboard" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="15.0" />
                                     </font>
@@ -105,7 +113,7 @@
                                         </ImageView>
                                     </graphic>
                                 </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Film" textFill="WHITE">
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#versFilm" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Film" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="15.0" />
                                     </font>
@@ -117,7 +125,7 @@
                                         </ImageView>
                                     </graphic>
                                 </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Seance" textFill="WHITE">
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#versSeance" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Seance" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="15.0" />
                                     </font>
@@ -129,7 +137,7 @@
                                         </ImageView>
                                     </graphic>
                                 </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Client" textFill="WHITE">
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#versClient" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Client" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="15.0" />
                                     </font>
@@ -141,6 +149,18 @@
                                         </ImageView>
                                     </graphic>
                                 </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#versUtilisateur" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Utilisateur" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/utilisateur1.PNG" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
                             </children>
                         </VBox>
                     </children>
@@ -164,20 +184,24 @@
                             <Font size="18.0" />
                         </font>
                     </Label>
-                    <Label alignment="CENTER" layoutX="184.0" layoutY="142.0" prefHeight="33.0" prefWidth="102.0" text="Adresse mail">
+                    <Label alignment="CENTER" layoutX="184.0" layoutY="142.0" prefHeight="33.0" prefWidth="102.0" text="adresse mail">
                         <font>
                             <Font size="18.0" />
                         </font>
                     </Label>
-                    <JFXButton layoutX="306.0" layoutY="242.0" onAction="#add_client" prefHeight="43.0" prefWidth="82.0" style="-fx-background-color: #4361ee;" text="Ajouter" textFill="WHITE">
+                    <JFXButton layoutX="306.0" layoutY="205.0" onAction="#add_client" prefHeight="43.0" prefWidth="82.0" style="-fx-background-color: #4361ee;" text="Ajouter" textFill="WHITE">
                         <font>
                             <Font size="18.0" />
                         </font>
                     </JFXButton>
                     <TextField fx:id="prenom" layoutX="309.0" layoutY="101.0" prefHeight="27.0" prefWidth="207.0" />
                     <TextField fx:id="mail" layoutX="309.0" layoutY="145.0" prefHeight="27.0" prefWidth="207.0" />
-                    <JFXCheckBox fx:id="checkbox12" layoutX="309.0" layoutY="197.0" text="+ 12 ans" />
-               <ListView fx:id="ClientList" layoutX="14.0" layoutY="1.0" prefHeight="334.0" prefWidth="183.0" />
+               <ListView fx:id="ClientList" layoutY="1.0" prefHeight="334.0" prefWidth="183.0" />
+               <JFXButton layoutX="357.0" layoutY="271.0" onAction="#del_client" prefHeight="43.0" prefWidth="153.0" style="-fx-background-color: #4361ee;" text="Retirer clients" textFill="WHITE">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </JFXButton>
                 </AnchorPane>
             </center>
         </BorderPane>

@@ -9,16 +9,14 @@ public class Client {
     private String nomC;
     private String prenom;
     private String mail;
-    private ListView clientList;
 
 
     // Constructeur
-    public Client(int id, String nomC, String prenom, String mail, ListView clientList) {
+    public Client(int id, String nomC, String prenom, String mail) {
         this.id = id;
         this.nomC = nomC;
         this.prenom = prenom;
         this.mail = mail;
-        this.clientList = clientList;
     }
 
     // Getters et setters
